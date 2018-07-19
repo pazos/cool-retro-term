@@ -88,12 +88,13 @@ ApplicationWindow{
     Action {
         id: quitAction
         text: qsTr("Quit")
-        shortcut: "Ctrl+Shift+Q"
+        shortcut: StandardKey.Quit
         onTriggered: Qt.quit();
     }
     Action{
         id: showsettingsAction
         text: qsTr("Settings")
+        shortcut: StandardKey.Preferences
         onTriggered: {
             settingswindow.show();
             settingswindow.requestActivate();
@@ -103,23 +104,23 @@ ApplicationWindow{
     Action{
         id: copyAction
         text: qsTr("Copy")
-        shortcut: Qt.platform.os === "osx" ? StandardKey.Copy : "Ctrl+Shift+C"
+        shortcut: StandardKey.Copy
     }
     Action{
         id: pasteAction
         text: qsTr("Paste")
-        shortcut: Qt.platform.os === "osx" ? StandardKey.Paste : "Ctrl+Shift+V"
+        shortcut: StandardKey.Paste
     }
     Action{
         id: zoomIn
         text: qsTr("Zoom In")
-        shortcut: "Ctrl++"
+        shortcut: StandardKey.ZoomIn
         onTriggered: appSettings.incrementScaling();
     }
     Action{
         id: zoomOut
         text: qsTr("Zoom Out")
-        shortcut: "Ctrl+-"
+        shortcut: StandardKey.ZoomOut
         onTriggered: appSettings.decrementScaling();
     }
     Action{
