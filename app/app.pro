@@ -17,12 +17,10 @@ RESOURCES += qml/resources.qrc
 ##              INTALLS
 #########################################
 
-target.path += /usr/bin/
+macx {
 
-INSTALLS += target
-
-# Install icons
-unix {
+} else:unix {
+    # Icon files
     icon32.files = icons/32x32/cool-retro-term.png
     icon32.path = /usr/share/icons/hicolor/32x32/apps
     icon64.files = icons/64x64/cool-retro-term.png
@@ -32,5 +30,8 @@ unix {
     icon256.files = icons/256x256/cool-retro-term.png
     icon256.path = /usr/share/icons/hicolor/256x256/apps
 
-    INSTALLS += icon32 icon64 icon128 icon256
+    # App binary
+    target.path += /usr/bin/
+
+    INSTALLS += target icon32 icon64 icon128 icon256
 }
