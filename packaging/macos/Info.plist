@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>LSMinimumSystemVersion</key>
+  <string>10.10.0</string>
+  <key>NSPrincipalClass</key>
+  <string>NSApplication</string>
+  <key>CFBundleIconFile</key>
+  <string>@ICON@</string>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+  <key>CFBundleSignature</key>
+  <string>????</string>
+  <key>CFBundleExecutable</key>
+  <string>@EXECUTABLE@</string>
+  <key>CFBundleName</key>
+  <string>@EXECUTABLE@</string>
+  <key>CFBundleShortVersionString</key>
+  <string>@SHORT_VERSION@</string>
+  <key>CFBundleVersion</key>
+  <string>@SHORT_VERSION@</string>
+  <key>CFBundleGetInfoString</key>
+  <string>@EXECUTABLE@ @SHORT_VERSION@</string>
+  <key>CFBundleIdentifier</key>
+  <string>com.swordfish90.cool-retro-term</string>
+  <key>NSHumanReadableCopyright</key>
+  <string>© 2011-2018 Filippo Scognamiglio</string>
+  <key>NSSupportsAutomaticGraphicsSwitching</key><true/>
+  <key>NSHighResolutionCapable</key><true/>
+</dict>
+</plist>
+

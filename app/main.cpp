@@ -41,8 +41,6 @@ int main(int argc, char *argv[])
 
 #if !defined(Q_OS_MAC)
     app.setWindowIcon(QIcon::fromTheme("cool-retro-term", QIcon(":../icons/32x32/cool-retro-term.png")));
-#else
-    app.setWindowIcon(QIcon(":../icons/32x32/cool-retro-term.png"));
 #endif
 
     // Manage command line arguments from the cpp side
@@ -82,11 +80,9 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("devicePixelRatio", app.devicePixelRatio());
 
-    // Manage import paths for Linux and OSX.
+    // Manage import paths for Linux.
     QStringList importPathList = engine.importPathList();
     importPathList.prepend(QCoreApplication::applicationDirPath() + "/qmltermwidget");
-    importPathList.prepend(QCoreApplication::applicationDirPath() + "/../PlugIns");
-    importPathList.prepend(QCoreApplication::applicationDirPath() + "/../../../qmltermwidget");
     engine.setImportPathList(importPathList);
 
     engine.load(QUrl(QStringLiteral ("qrc:/main.qml")));

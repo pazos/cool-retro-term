@@ -1,15 +1,25 @@
 QT += qml quick widgets sql
-TARGET = cool-retro-term 
 
-DESTDIR = $$OUT_PWD/../
+include(../cool-retro-term.pri)
+
+TARGET = cool-retro-term
+DESTDIR = $$OUT_PWD/..
 
 HEADERS += \
     fileio.h
 
-SOURCES = main.cpp \
+SOURCES = \
+    main.cpp \
     fileio.cpp
 
+isEmpty(VERSION) {
+    VERSION = 1.01
+}
+
+DEFINES += CRT_VERSION='\\"$${VERSION}\\"'
+
 macx:ICON = icons/crt.icns
+macx:QMAKE_INFO_PLIST = $${CRT_ROOTDIR}/packaging/macos/Info.plist
 
 RESOURCES += qml/resources.qrc
 
@@ -18,7 +28,8 @@ RESOURCES += qml/resources.qrc
 #########################################
 
 macx {
-
+    QMAKE_POST_LINK += $$escape_expand(\n\t) $$CRT_ROOTDIR/packaging/macos/macdeployqt_helper.sh \
+        $${DESTDIR}/$${TARGET}.app $${CRT_QMLDIR} $${DESTDIR}
 } else:unix {
     # Icon files
     icon32.files = icons/32x32/cool-retro-term.png

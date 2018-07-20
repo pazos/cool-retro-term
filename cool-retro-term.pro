@@ -2,10 +2,16 @@ TEMPLATE = subdirs
 
 CONFIG += ordered
 
+include(cool-retro-term.pri)
+
 SUBDIRS += qmltermwidget
 SUBDIRS += app
 
-desktop.files += cool-retro-term.desktop
-desktop.path += /usr/share/applications
+macx {
 
-INSTALLS += desktop
+} else:unix {
+    desktop.files += cool-retro-term.desktop
+    desktop.path += /usr/share/applications
+
+    INSTALLS += desktop
+}
